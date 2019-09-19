@@ -1,9 +1,21 @@
 import os
 
 
+# my custom COCO-like dataset:
+#   'jap_heads_train', 'jap_heads_val'
 class DatasetCatalog:
     DATA_DIR = 'datasets'
     DATASETS = {
+        'jap_heads_train': {
+            "data_dir": "JapanHeads",
+            "sub_dir": "train",
+            "ann_file": "annotations/train.json"
+        },
+        'jap_heads_val': {
+            "data_dir": "JapanHeads",
+            "sub_dir": 'val',
+            "ann_file": "annotations/val.json"
+        },
         'voc_2007_train': {
             "data_dir": "VOC2007",
             "split": "train"
@@ -76,6 +88,17 @@ class DatasetCatalog:
             args = dict(
                 data_dir=os.path.join(coco_root, attrs["data_dir"]),
                 ann_file=os.path.join(coco_root, attrs["ann_file"]),
+            )
+            return dict(factory="COCODataset", args=args)
+        # I added this for custom COCO-like dataset
+        elif "jap" in name:
+            coco_root = DatasetCatalog.DATA_DIR
+            attrs = DatasetCatalog.DATASETS[name]
+            args = dict(
+                data_dir=os.path.join(coco_root, attrs["data_dir"],
+                                      attrs["sub_dir"]),
+                ann_file=os.path.join(coco_root, attrs["data_dir"],
+                                      attrs["ann_file"]),
             )
             return dict(factory="COCODataset", args=args)
 
