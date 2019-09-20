@@ -12,6 +12,7 @@ ext/torch_extension.egg-info/
 # ipython/jupyter notebooks
 *.ipynb
 **/.ipynb_checkpoints/
+!INFERE_ON_VIDEO.ipynb
 
 # Editor temporaries
 *.swn
