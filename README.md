@@ -10,6 +10,10 @@ By default, validation and checkpoint saving are set to each 2500 iteration (loo
 
 Logging and plotting comes through `tensorboardX` (`tensorboard` also needs to be installed).
 
+Dataset for my examples: [google_drive](https://drive.google.com/file/d/1lQi_6J028_AQIWHB1f3yWSlmrhZBytT6/view?usp=sharing)
+
+Also see: https://gitlab.com/banderlog/torchvision_fastrcnn_example
+
 ==========
 
 
